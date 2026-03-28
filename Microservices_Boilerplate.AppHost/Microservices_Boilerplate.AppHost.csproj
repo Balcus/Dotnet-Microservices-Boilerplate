@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Account.API\Account.API.csproj" />
       <ProjectReference Include="..\ApiGateway\ApiGateway.csproj" />
       <ProjectReference Include="..\Feed.API\Feed.API.csproj" />
       <ProjectReference Include="..\Identity.API\Identity.API.csproj" />

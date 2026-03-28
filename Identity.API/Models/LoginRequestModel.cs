@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace IdentityService.Models.AccountModels;
+namespace IdentityService.Models;
 
-public class LoginModel
+public record LoginRequestModel
 {
     [Required] [EmailAddress] public string Email { get; set; }
     [Required] public string Password { get; set; }

@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace IdentityService.Models.AccountModels;
+namespace IdentityService.Models;
 
-public class RegisterModel
+public record RegisterRequestModel
 {
     [Required] public string FirstName { get; set; }
     [Required] public string LastName { get; set; }

@@ -4,29 +4,25 @@
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <UserSecretsId>bb5c926c-037f-4a7e-a3e4-16b98bb62db8</UserSecretsId>
-        <RootNamespace>IdentityService</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="13.2.0" />
         <PackageReference Include="MassTransit" Version="8.5.8" />
-        <PackageReference Include="MassTransit.Abstractions" Version="8.5.8" />
         <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.8" />
-        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.5" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.5" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="10.0.5" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.5">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Scalar.AspNetCore" Version="2.13.15" />
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Contracts\Contracts.csproj" />
       <ProjectReference Include="..\Microservices_Boilerplate.ServiceDefaults\Microservices_Boilerplate.ServiceDefaults.csproj" />
+      <ProjectReference Include="..\SharedAbstractions\SharedAbstractions.csproj" />
     </ItemGroup>
 
 </Project>
