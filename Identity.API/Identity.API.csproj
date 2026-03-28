@@ -5,10 +5,14 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>bb5c926c-037f-4a7e-a3e4-16b98bb62db8</UserSecretsId>
+        <RootNamespace>IdentityService</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="13.2.0" />
+        <PackageReference Include="MassTransit" Version="9.0.1" />
+        <PackageReference Include="MassTransit.Abstractions" Version="9.0.1" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="9.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.5" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.5" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1"/>

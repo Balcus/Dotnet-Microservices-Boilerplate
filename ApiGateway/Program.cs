@@ -1,14 +1,12 @@
+using System.Security.Claims;
 using System.Text;
+using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
-
-builder.Services.AddReverseProxy()
-    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"))
-    .AddServiceDiscoveryDestinationResolver();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -26,18 +24,36 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddAuthorization(options =>
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("authenticated", policy => policy.RequireAuthenticatedUser());
+
+builder.Services.AddRateLimiter(options =>
 {
-    options.AddPolicy("authenticated", policy =>
-        policy.RequireAuthenticatedUser());
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.AddPolicy("fixed-by-user", httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: httpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "Anonymous",
+            factory: _ => new FixedWindowRateLimiterOptions()
+            {
+                PermitLimit = 5,
+                Window = TimeSpan.FromSeconds(10),
+            }));
 });
+
+builder.Services.AddReverseProxy()
+    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"))
+    .AddServiceDiscoveryDestinationResolver();
+
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
+app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseRateLimiter();
 
 app.MapReverseProxy();
 app.Run();

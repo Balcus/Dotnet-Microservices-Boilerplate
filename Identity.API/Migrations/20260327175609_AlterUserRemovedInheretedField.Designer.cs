@@ -25,7 +25,7 @@ namespace IdentityService.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("IdentityService.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Identity.API.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -240,7 +240,7 @@ namespace IdentityService.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("IdentityService.Models.ApplicationUser", null)
+                    b.HasOne("Identity.API.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -249,7 +249,7 @@ namespace IdentityService.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("IdentityService.Models.ApplicationUser", null)
+                    b.HasOne("Identity.API.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -264,7 +264,7 @@ namespace IdentityService.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("IdentityService.Models.ApplicationUser", null)
+                    b.HasOne("Identity.API.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -273,7 +273,7 @@ namespace IdentityService.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("IdentityService.Models.ApplicationUser", null)
+                    b.HasOne("Identity.API.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace IdentityService.Data;
 
 /// <remarks>
-/// Add migrations using the following command inside the 'IdentityService' project directory:
+/// Add migrations using the following command inside the 'Identity.API' project directory:
 ///
 /// dotnet ef migrations add [migration-name]
 /// </remarks>
