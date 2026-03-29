@@ -55,6 +55,14 @@ var accountService = builder.AddProject<Projects.Account_API>("account-service")
 var gateway = builder.AddProject<Projects.ApiGateway>("api-gateway")
     .WithReference(identityService);
 
+// --- Web Application --- //
+var web = builder.AddNpmApp("web", "../Microservices_Boilerplate.Web")
+    .WithReference(gateway)
+    .WaitFor(gateway)
+    .WithEnvironment("VITE_API_URL", gateway.GetEndpoint("http"))
+    .WithHttpEndpoint(env: "PORT", port: 5173, isProxied: false)
+    .PublishAsDockerFile();
+
 scalar.WithApiReference(identityService)
     .WithApiReference(gateway);
 

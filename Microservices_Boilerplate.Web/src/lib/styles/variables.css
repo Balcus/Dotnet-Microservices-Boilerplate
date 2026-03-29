@@ -1,0 +1,11 @@
+:root {
+    --main-backgorund-color: #392121;
+    --main-text-color: #FFF8F0;
+    --main-font-family: "MedievalSharp", cursive;
+    --title-font-family: 'Jacquard 12', system-ui;
+
+    --inactive-link-color: #aaa;
+    --active-link-color: #fff;
+
+    --border-style: 1px solid rgba(0, 0, 0, 0.416);
+}
