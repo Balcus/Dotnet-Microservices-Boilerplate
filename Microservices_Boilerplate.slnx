@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/Gateway/">
+    <Project Path="src/ApiGateway/ApiGateway.csproj" />
+  </Folder>
+
+  <Folder Name="/Services/">
+    <Project Path="src/Identity.API/Identity.API.csproj" />
+    <Project Path="src/Account.API/Account.API.csproj" />
+    <Project Path="src/Feed.API/Feed.API.csproj" />
+  </Folder>
+
+  <Folder Name="/Libraries/">
+    <Project Path="src/Contracts/Contracts.csproj" />
+    <Project Path="src/SharedAbstractions/SharedAbstractions.csproj" />
+  </Folder>
+
+  <Folder Name="/Infrastructure/">
+    <Project Path="src/Microservices_Boilerplate.AppHost/Microservices_Boilerplate.AppHost.csproj" />
+    <Project Path="src/Microservices_Boilerplate.ServiceDefaults/Microservices_Boilerplate.ServiceDefaults.csproj" />
+  </Folder>
+
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+</Solution>
