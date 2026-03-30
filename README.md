@@ -1,4 +1,4 @@
-# CarWatch
+# Microservices Boilerplate for .NET with Aspire
 
 Boilerplate for .NET based microservices architecture with RabbitMq as event bus and YARP for Gateway.
 
