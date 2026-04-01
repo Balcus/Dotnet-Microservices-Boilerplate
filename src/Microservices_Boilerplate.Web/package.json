@@ -4,6 +4,11 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
+		"dev:generate_models:all": "pnpm run dev:generate_models:identity && pnpm run dev:generate_models:account",
+
+		"dev:generate_models:identity": "NODE_TLS_REJECT_UNAUTHORIZED=0 openapi-typescript https://localhost:7199/openapi/v1.json --output src/lib/api/models/identity.model.ts",
+		"dev:generate_models:account": "NODE_TLS_REJECT_UNAUTHORIZED=0 openapi-typescript https://localhost:7292/openapi/v1.json --output src/lib/api/models/account.model.ts",
+
 		"start": "vite dev",
 		"dev": "vite dev",
 		"build": "vite build",
@@ -16,6 +21,8 @@
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.50.2",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
+		"openapi-typescript": "^7.13.0",
+		"openapi-typescript-codegen": "^0.30.0",
 		"svelte": "^5.54.0",
 		"svelte-check": "^4.4.2",
 		"typescript": "^5.9.3",

@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,12 +49,16 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+app.MapScalarApiReference();
+
 app.MapDefaultEndpoints();
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseRateLimiter();
+
+app.MapOpenApi();
 
 app.MapReverseProxy();
 app.Run();

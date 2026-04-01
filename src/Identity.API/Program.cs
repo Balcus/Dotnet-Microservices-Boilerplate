@@ -38,12 +38,12 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapDefaultEndpoints();
+app.MapScalarApiReference();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     app.MapOpenApi();
-    app.MapScalarApiReference();
 }
 else
 {

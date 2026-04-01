@@ -12,7 +12,12 @@ var mongo = builder.AddMongoDB("mongo")
     .WithMongoExpress()
     .WithLifetime(ContainerLifetime.Persistent);
 
-var scalar = builder.AddScalarApiReference();
+var scalar = builder.AddScalarApiReference(options =>
+{
+    options
+        .PreferHttpsEndpoint()
+        .AllowSelfSignedCertificates();
+});
 
 var rabbitMq = builder.AddRabbitMQ("event-bus")
     .WithManagementPlugin();
