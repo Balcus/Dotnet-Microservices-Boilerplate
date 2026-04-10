@@ -1,13 +1,13 @@
 <script lang="ts">
-    import '../app.css'
+    import '../../app.css'
     let { children } = $props()
 </script>
 
 <div class="wrapper">
     <nav class="main-nav">
-        <a href="/" class="site-title">The Roshar Forum</a>
+        <a href="/home" class="site-title">The Roshar Forum</a>
         <div class="nav-links">
-			<a href="/account">Notifications</a>
+			<a href="/">Notifications</a>
             <a href="/account">Account</a>
         </div>
     </nav>
